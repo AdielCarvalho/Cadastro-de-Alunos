@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro de Alunos</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <!--Container principal da aplicação-->
+    <div class="container">
+        <h1>Sistema de Cadastro de Alunos v2.0</h1>
+
+        <!-- Seção do Formulário -->
+        <div class="form-section">
+            <h2 style="margin-bottom: 20px; color: #000000;">Cadastrar Novo Aluno</h2>
+            <!-- Formulário de cadastro -->
+            <form id="formAluno">
+                <!-- Campo ID (oculto, usado apenas para edição) -->
+                <input type="hidden" id="alunoId">
+                <!-- Campo Nome -->
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" required placeholder="Digite o nome completo">
+                </div>
+                <!-- Campo Matrícula -->
+                <div class="form-group">
+                    <label for="matricula">Matrícula:</label>
+                    <input type="text" id="matricula" required placeholder="Digite a matrícula">
+                </div>
+                <!-- Campo Email -->
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" required placeholder="Digite o e-mail">
+                </div>
+                <!-- Campo Idade -->
+                <div class="form-group">
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" required placeholder="Digite a idade" min="1" max="150">
+                </div>
+                <!-- Botões de ação do formulário -->
+
+                <div>
+                    <button type="submit" class="btn btn-primary" id="btnSalvar"> Salvar Aluno </button>
+
+                    <button type="button" class="btn btn-secondary" id="btnCancelar"> Cancelar </button>
+                </div>
+            </form>
+            <div class="table-section">
+                <h2 style="margin-bottom: 20px; color: black;">Lista de Alunos Cadastrados</h2>
+
+                <!--Tabela para exibir alunos-->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Matrícula</th>
+                            <th>E-mail</th>
+                            <th>Idade</th>
+                            <th style="text-align: center;">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaAlunos">
+                        <!--Os dados dos alunos serão inseridos aqui via JavaScript-->
+                        <tr>
+                            <td colspan="5" class="no-data">Nenhum aluno cadastrado ainda.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <!-- Script JavaScript -->
+        <script src="renderer.js"></script>
+
+
+</body>
+
+</html>
