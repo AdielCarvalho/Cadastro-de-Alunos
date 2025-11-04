@@ -96,6 +96,22 @@ function renderizarTabela(){
     console.log('Tabela renderizada com', todosAlunos.length, 'aluno(s)');
 }
 
+/* Limpa todos os campos do formulário*/
+function limparFormulario(){
+    document.getElementById('alunoId').value = '';
+    document.getElementById('nome').value = '';
+    document.getElementById('matricula').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('idade').value = '';
+
+    //Reseta o estado de edição
+    editando = false;
+    document.getElementById('btnSalvar').textContent = '👍 Salvar Aluno'
+    document.getElementById('btnCancelar').style.display ='none';
+
+    console.log('Formulário limpo');
+}
+
 //5.Eventos e Inicialização
 //Evento de submit do formulário
 //Execultado quando o usuário clica em "Salvar" ou "Atualizar"
