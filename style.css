@@ -1,4 +1,3 @@
-
 *{
     margin: 0;
     padding: 0;
@@ -42,11 +41,10 @@ body{
 .container h1{
     background:linear-gradient(135deg,#718096 0%, #718079 100%) ;
     font-size: 3rem;
-    margin-bottom: 40px;
-    margin-left: 190px;
-    margin-right: 190px;
+    margin-bottom: 3rem;
     text-shadow: 4px 4px 8px rgba(5, 6, 7, 2.30);
     border-radius: 50px;
+    margin: 30px 460px 30px 460px;
     text-align: center;
     font-style: italic;
     color: #f9fafc;
