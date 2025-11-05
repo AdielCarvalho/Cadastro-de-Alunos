@@ -1,3 +1,4 @@
+
 //1. Variáveis Globais
 // Array que armazenará todos os alunos
 let alunos = [];
@@ -54,6 +55,38 @@ function adicionarAluno(aluno){
 function listarAlunos() {
     return alunos;
 }
+//UPDATE - Atualiza os dados de um aluno existente
+//@param {number} id- ID do aluno a ser atualizado
+//@param {Object} dadosAtualizados - novos dados  do aluno
+
+function atualizarAluno(id, dadosAtualizados) {
+    //Encontra o indice do aluno no array pelo ID
+    const index = alunos.findIndex((aluno) => aluno.id === id)
+
+    //Se encontrou o aluno
+    if(index !== -1){
+        //Atualiza os dados mantendo o ID original
+        alunos[index] = { ...dadosAtualizados, id: id}
+
+        //Salva no LocalStorage
+        salvarNoStorage()
+
+        console.log('Aluno atualizado: ', alunos[index])
+    }
+}
+
+//DELETE -Remove um aluno do sistema
+//@param {number} id - ID do aluno a ser removido
+
+function excluirAluno(id) { 
+    //Filtra o array removendo o aluno com o ID especificado
+    alunos = alunos.filter(aluno => aluno.id !== id);
+
+    //Salva no LocalStorage
+    salvarNoStorage();
+
+    console.log('Aluno excluido. ID: ', id);
+}
 
 //4. Funções de interface (UI)
 
@@ -89,6 +122,14 @@ function renderizarTabela(){
            <td>${aluno.matricula}</td>
            <td>${aluno.email}</td>
            <td>${aluno.idade}</td>
+           <td style="text-align: center;">
+               <button class="btn btn-edit" onclick="editarAluno(${aluno.id})">
+                ✏️ Editar
+                </button>
+                <button class="btn btn-delete" onclick="confirmarExclusao(${aluno.id})">
+                🗑️ Excluir
+                </button>
+            </td>
         `;
         tbody.appendChild(tr);
     });
@@ -110,6 +151,58 @@ function limparFormulario(){
     document.getElementById('btnCancelar').style.display ='none';
 
     console.log('Formulário limpo');
+}
+
+//Preencher o formulário com os dados de um aluno para edição
+//@param{number} id - ID do aluno a ser editado
+
+function editarAluno(id) {
+    //Buscar o aluno pelo ID
+    const aluno= alunos.find(a => a.id === id);
+
+    if (aluno){
+        //Preenche os campos do formulário
+        document.getElementById('alunoId').value = aluno.id;
+        document.getElementById('nome').value = aluno.nome;
+        document.getElementById('matricula').value = aluno.matricula;
+        document.getElementById('email').value = aluno.email;
+        document.getElementById('idade').value = aluno.idade;
+
+        //Muda o estado para edição
+        editando = true;
+        document.getElementById('btnSalvar').textContent = 'Atualizar Aluno'
+        document.getElementById('btnCancelar').style.display ='inline-block';
+
+        //Rola a página para o topo (formulário)
+        window.scrollTo({top: 0, behavior: 'smooth'});
+
+        console.log('Editando aluno: ', aluno);
+
+    }
+}
+
+//Confirma a exclusçao de um aluno
+//@param {number} id-ID do aluno a ser excluido
+
+function confirmarExclusão(id) {
+    //Busca o aluno para mostrar o nome na confirmação
+    const aluno = alunos.find(a => a.id === id);
+
+    if(aluno){
+        //Mostrar caixa de confirmação
+        const confirmacao = confirm(
+            'Tem certeza que deseja excluir o aluno:\n\n${aluno.nome}?\n\nEsta ação não pode ser desfeita!'
+
+        );
+
+        //Se confirmou, exclui o aluno
+
+        if(confirmacao)  {
+            excluirAluno(id);
+            renderizarTabela();
+            alert('Aluno excluido com sucesso');
+        }
+    }
 }
 
 //5.Eventos e Inicialização
@@ -157,6 +250,15 @@ document.getElementById('formAluno').addEventListener('submit', function(e){
     renderizarTabela();
 });
 
+//Evento do botão cancelar
+//Cancela a edição e limpa o formulário
+
+document.getElementById('btnCancelar').addEventListener('click', function(){
+    if (confirm('Deseja cancelar a edição?')){
+        limparFormulario();
+    }
+})
+
 //Inicialização do aplicativo
 //Executado quando a página carrega
 
@@ -172,4 +274,5 @@ window.addEventListener('DOMContentLoaded', function(){
 
     console.log('Sistema pronto para uso!')
 })
+
 
