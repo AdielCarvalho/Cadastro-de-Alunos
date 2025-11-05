@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -10,29 +11,50 @@ body{
     min-height: 100vh; /* define a altura mínima de um elemento*/
     color: #1e293b;
     padding: 2rem;
-    line-height: 2;
+    line-height: 2; 
 
 }
-.container{
+
+
+#formAluno{
+    max-width: 900px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    padding: 30px 40px;
+    box-shadow: 0 8px 24px rgba(219, 216, 216, 0.15);
+    
+    
+}
+
+.table-section{
     max-width: 900px;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.8);
-    border-radius: 16px;
+    border-radius: 50px;
     padding: 30px 40px;
     box-shadow: 0 8px 24px rgba(219, 216, 216, 0.15);
+
 }
+
 
 .container h1{
     background:linear-gradient(135deg,#718096 0%, #718079 100%) ;
     font-size: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     text-shadow: 4px 4px 8px rgba(5, 6, 7, 2.30);
     border-radius: 50px;
+    margin: 30px 460px 30px 460px;
     text-align: center;
     font-style: italic;
     color: #f9fafc;
     
 }
+
+
+
+
 
 .container h2{
     text-align: center;
@@ -47,6 +69,7 @@ body{
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 20px;
+    
 }
 
 label{
@@ -59,7 +82,7 @@ input{
     padding: 8px 10px;
     border: 1px solid #cbd5e0;
     border-radius: 6px;
-    outline: none;
+    outline: none; /*Espessura do contorno*/
     width: 100%;
     transition: 0.3s;
 }
@@ -153,4 +176,5 @@ tr:hover {
   button {
     width: 100%;
   }
+
 }
