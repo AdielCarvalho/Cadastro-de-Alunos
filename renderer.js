@@ -184,14 +184,14 @@ function editarAluno(id) {
 //Confirma a exclusçao de um aluno
 //@param {number} id-ID do aluno a ser excluido
 
-function confirmarExclusão(id) {
+function confirmarExclusao(id) {
     //Busca o aluno para mostrar o nome na confirmação
     const aluno = alunos.find(a => a.id === id);
 
     if(aluno){
         //Mostrar caixa de confirmação
         const confirmacao = confirm(
-            'Tem certeza que deseja excluir o aluno:\n\n${aluno.nome}?\n\nEsta ação não pode ser desfeita!'
+            `Tem certeza que deseja excluir o aluno:\n\n${aluno.nome}?\n\nEsta ação não pode ser desfeita!`
 
         );
 
