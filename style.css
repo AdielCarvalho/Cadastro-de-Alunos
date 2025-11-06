@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -6,13 +7,21 @@
 
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background: linear-gradient(135deg, rgb(174, 174, 201) 0%, rgb(231, 243, 243) 100%);
+   /* background: linear-gradient(135deg, rgb(174, 174, 201) 0%, rgb(231, 243, 243) 100%);*/
     min-height: 100vh; /* define a altura mínima de um elemento*/
     color: #1e293b;
     padding: 2rem;
     line-height: 2; 
+    background-image: url('alunos2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /* Para fixar a imagem no fundo do site sem que ela mude*/
 
 }
+
+
+
 
 
 #formAluno{
@@ -28,7 +37,7 @@ body{
 }
 
 .table-section{
-    max-width: 900px;
+    max-width: 1400px;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 50px;
@@ -37,8 +46,20 @@ body{
 
 }
 
-
 .container h1{
+    /*background:linear-gradient(135deg,#718096 0%, #718079 100%) ;*/
+    font-size: 3rem;
+    text-shadow: 4px 4px 8px rgba(5, 6, 7, 2.30);
+    border-radius: 50px;
+    text-align: center;
+    font-style: italic;
+    color: #f9fafc;
+    margin-bottom: 30px ;
+   
+        
+
+}
+/*.container h1{
     background:linear-gradient(135deg,#718096 0%, #718079 100%) ;
     font-size: 3rem;
     margin-bottom: 3rem;
@@ -49,7 +70,7 @@ body{
     font-style: italic;
     color: #f9fafc;
     
-}
+}*/
 
 
 
@@ -155,25 +176,3 @@ tr:hover {
 
 
 
-
-
-/* ======== RESPONSIVIDADE ======== */
-@media (max-width: 700px) {
-  .container {
-    padding: 20px;
-  }
-
-  .form-group {
-    flex-direction: column;
-  }
-
-  input {
-    font-size: 1rem;
-    width: 100%;
-  }
-
-  button {
-    width: 100%;
-  }
-
-}
